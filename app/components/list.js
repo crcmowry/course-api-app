@@ -45,7 +45,7 @@ export default class CustomList extends Component {
 		return (
 			<List containerStyle={styles.container}>
 				{
-					items.slice(0,20)
+					items
 				}
 			</List>
 		);
