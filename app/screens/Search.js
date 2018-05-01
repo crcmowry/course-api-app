@@ -10,13 +10,12 @@ import {
 } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Header from '../components/header';
 import GLOBALS from '../config/globals';
 
 import F from '../../data/F.json';
-import S from '../../data/S.json';
-import M1 from '../../data/M1.json';
-import M2 from '../../data/M2.json';
+// import S from '../../data/S.json';
+// import M1 from '../../data/M1.json';
+// import M2 from '../../data/M2.json';
 
 export default class Search extends Component {
 	constructor(props) {
@@ -41,6 +40,7 @@ export default class Search extends Component {
 		return (
 			<View style={styles.container}>
 				<SearchBar
+					containerStyle={styles.searchContainer}
 					lightTheme
 					onChangeText={query => this.setState({ query })}
 					placeholder={'Type Here...'}
@@ -61,6 +61,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		// justifyContent: 'center',
 		// alignItems: 'center'
+		backgroundColor: GLOBALS.COLORS.BLUSH,
+		borderColor: GLOBALS.COLORS.BLUSH
+	},
+	searchContainer: {
+		backgroundColor: GLOBALS.COLORS.BLUSH
 	},
 	searchbar: {
 		// flex: 1,

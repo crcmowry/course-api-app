@@ -19,14 +19,20 @@ export default class Settings extends Component {
 			semester: 'F'
 		}
 	}
+
+	onSemesterPicked (itemValue, itemIndex) {
+		this.props.navigation.setParams({semester: itemValue})
+		this.setState({semester: itemValue});
+	}
+
 	render () {
-		console.log(this.props.navigation);
+		// console.log(this.props.navigation);
 		return (
 			<View style={styles.container}>
 				<Picker
 					selectedValue={this.state.semester}
 					style={{ height: 50, width: 200 }}
-					onValueChange={(itemValue, itemIndex) => this.setState({semester: itemValue})}>
+					onValueChange={(itemValue, itemIndex) => this.onSemesterPicked(itemValue,itemIndex)}>
 					<Picker.Item label={F.semester} value="F" />
 					<Picker.Item label={S.semester} value="S" />
 					<Picker.Item label={M1.semester} value="M1" />

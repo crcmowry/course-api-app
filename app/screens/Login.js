@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		backgroundColor: GLOBALS.COLORS.ORANGE,
-		width: 150,
-		height: 50,
+		width: 100,
+		height: 44,
 		borderRadius: 7
 	},
 	buttonContainer: {

@@ -23,6 +23,7 @@ import SearchScreen from './app/screens/Search';
 import SettingsScreen from './app/screens/Settings';
 import LoginScreen from './app/screens/Login';
 import DetailsScreen from './app/screens/Details';
+import DepartmentScreen from './app/screens/Department';
 
 import GLOBALS from './app/config/globals';
 
@@ -62,10 +63,17 @@ const BrowseStack = StackNavigator({
             headerStyle: styles.header
         })
     },
+    Department: {
+        screen: DepartmentScreen,
+        navigationOptions: ({ navigation }) => ({
+            headerTitle: navigation.getParam('department', 'Department'),
+            headerStyle: styles.header
+        })
+    },
     Details: {
         screen: DetailsScreen,
         navigationOptions: ({ navigation }) => ({
-            headerTitle: navigation.state.params.number,
+            headerTitle: navigation.getParam('number', 'Details'),
             headerStyle: styles.header
         })
     },
@@ -82,9 +90,6 @@ const AppDrawerNavigator = DrawerNavigator({
     Browse: {
         screen: BrowseStack
     },
-    // Search: {
-    //     screen: SearchScreen
-    // },
     Settings: {
         screen: SettingsScreen
     },
@@ -96,7 +101,10 @@ const AppDrawerNavigator = DrawerNavigator({
     contentOptions: {
         activeTintColor: GLOBALS.COLORS.PINK
     },
-    contentComponent: CustomDrawerContentComponent
+    contentComponent: CustomDrawerContentComponent,
+    initialRouteParams: {
+        semester: 'F'
+    }
 });
 
 const styles = StyleSheet.create({
@@ -119,7 +127,7 @@ const styles = StyleSheet.create({
     logo: {
         // flex: 1,
         // resizeMode: 'contain'
-        height: 200,
-        width: 200
+        height: 250,
+        width: 250
     }
 })
