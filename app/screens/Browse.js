@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, ScrollView } from 'react-native';
 import Header from '../components/header';
 import CustomList from '../components/list';
 
+import GLOBALS from '../config/globals';
 import F18 from '../../data/F.json';
 
 export default class Browse extends Component {
@@ -15,11 +16,11 @@ export default class Browse extends Component {
 	render() {
 		return(
 			<View style={styles.container}>
-				{<ScrollView>
+				{/*<ScrollView>
 					<CustomList
 						data={F18}
 						details={(item) => this.details(item)}/>
-				</ScrollView>}
+				</ScrollView>*/}
 			</View>
 		);
 	}
@@ -27,6 +28,7 @@ export default class Browse extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1
+		flex: 1,
+		backgroundColor: GLOBALS.COLORS.BLUSH
 	}
 })

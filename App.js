@@ -16,7 +16,9 @@ import BrowseScreen from './app/screens/Browse';
 import SearchScreen from './app/screens/Search';
 import SettingsScreen from './app/screens/Settings';
 import LoginScreen from './app/screens/Login';
-import DetailsScreen from './app/screens/Details'
+import DetailsScreen from './app/screens/Details';
+
+import GLOBALS from './app/config/globals';
 
 export default class App extends Component {
     render() {
@@ -35,19 +37,22 @@ const BrowseStack = StackNavigator({
             headerRight:
                 <TouchableOpacity style={styles.icon} onPress={() => navigation.navigate('Search')}>
                     <Icon name='search' size={20}/>
-                </TouchableOpacity>
+                </TouchableOpacity>,
+            headerStyle: styles.header
         })
     },
     Details: {
         screen: DetailsScreen,
         navigationOptions: ({ navigation }) => ({
-            headerTitle: navigation.state.params.number
+            headerTitle: navigation.state.params.number,
+            headerStyle: styles.header
         })
     },
     Search: {
         screen: SearchScreen,
         navigationOptions: ({ navigation }) => ({
-            headerTitle: 'Search'
+            headerTitle: 'Search',
+            headerStyle: styles.header
         })
     }
 });
@@ -65,10 +70,16 @@ const AppDrawerNavigator = DrawerNavigator({
     Login: {
         screen: LoginScreen
     }
+},
+{
+    drawerBackgroundColor: GLOBALS.COLORS.LIGHT_GRAY
 });
 
 const styles = StyleSheet.create({
     icon: {
         margin: 8
+    },
+    header: {
+        backgroundColor: GLOBALS.COLORS.RED
     }
 })

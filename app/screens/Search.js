@@ -24,8 +24,13 @@ export default class Search extends Component {
 
 	onGoPressed () {
 		// console.log(F18.courses[this.state.query]);
-		this.props.navigation.navigate('Details',
-			{number: this.state.query, ...F18.courses[this.state.query]})
+		if(F18.courses[this.state.query]) {
+			this.props.navigation.navigate('Details',
+				{number: this.state.query, ...F18.courses[this.state.query]})
+		} else {
+			alert(`${this.state.query} is not a valid course number. Make sure to use hyphens ('-').`);
+		}
+
 	}
 
 	render() {
