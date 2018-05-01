@@ -28,7 +28,7 @@ export default class Search extends Component {
 			this.props.navigation.navigate('Details',
 				{number: this.state.query, ...F18.courses[this.state.query]})
 		} else {
-			alert(`${this.state.query} is not a valid course number. Make sure to use hyphens ('-').`);
+			alert(`"${this.state.query}" is not a valid course number. Make sure to use hyphens ("-").`);
 		}
 
 	}

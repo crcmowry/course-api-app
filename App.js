@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    ScrollView,
+    Text,
+    Image,
+    View
 } from 'react-native';
 import {
     StackNavigator,
-    DrawerNavigator
+    DrawerNavigator,
+    SafeAreaView,
+    DrawerItems
 } from 'react-navigation';
 import {
     Button
@@ -25,6 +31,21 @@ export default class App extends Component {
         return (<AppDrawerNavigator/>);
     }
 }
+
+const CustomDrawerContentComponent = (props) => (
+    <ScrollView>
+        <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
+            <View style={styles.imageContainer}>
+                <Image
+                    source={require('./images/cmu_logo.png')}
+                    style={styles.logo}
+                />
+            </View>
+            <DrawerItems {...props} />
+        </SafeAreaView>
+    </ScrollView>
+);
+
 const BrowseStack = StackNavigator({
     Browse: {
         screen: BrowseScreen,
@@ -70,16 +91,35 @@ const AppDrawerNavigator = DrawerNavigator({
     Login: {
         screen: LoginScreen
     }
-},
-{
-    drawerBackgroundColor: GLOBALS.COLORS.LIGHT_GRAY
+}, {
+    drawerBackgroundColor: GLOBALS.COLORS.LIGHT_GRAY,
+    contentOptions: {
+        activeTintColor: GLOBALS.COLORS.PINK
+    },
+    contentComponent: CustomDrawerContentComponent
 });
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    imageContainer: {
+        flex: 1,
+        // height: 50,
+        // width: 50,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     icon: {
         margin: 8
     },
     header: {
         backgroundColor: GLOBALS.COLORS.RED
+    },
+    logo: {
+        // flex: 1,
+        // resizeMode: 'contain'
+        height: 200,
+        width: 200
     }
 })

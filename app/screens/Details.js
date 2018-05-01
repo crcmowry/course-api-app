@@ -20,7 +20,7 @@ export default class Details extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: GLOBALS.COLORS.WHITE,
+		backgroundColor: GLOBALS.COLORS.BLUSHs,
 		justifyContent: 'center',
 		// alignItems: 'center'
 	},
