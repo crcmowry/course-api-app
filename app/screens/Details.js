@@ -9,6 +9,9 @@ export default class Details extends Component {
 		// console.log(props);
 		return (
 			<View style={styles.container}>
+				<Text style={styles.name}>
+					{props.name}
+				</Text>
 				<Text style={styles.description}>
 					{props.desc}
 				</Text>
@@ -20,11 +23,14 @@ export default class Details extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: GLOBALS.COLORS.BLUSHs,
+		backgroundColor: GLOBALS.COLORS.BLUSH,
 		justifyContent: 'center',
-		// alignItems: 'center'
+		alignItems: 'center'
 	},
 	description: {
 		fontSize: 12
+	},
+	name: {
+		fontSize: 24
 	}
 })

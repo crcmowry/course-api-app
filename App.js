@@ -37,7 +37,7 @@ const CustomDrawerContentComponent = (props) => (
         <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
             <View style={styles.imageContainer}>
                 <Image
-                    source={require('./images/cmu_logo.png')}
+                    source={require('./images/cmu_logo_transparent.png')}
                     style={styles.logo}
                 />
             </View>

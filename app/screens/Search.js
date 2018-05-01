@@ -11,8 +11,12 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Header from '../components/header';
+import GLOBALS from '../config/globals';
 
-import F18 from '../../data/F.json';
+import F from '../../data/F.json';
+import S from '../../data/S.json';
+import M1 from '../../data/M1.json';
+import M2 from '../../data/M2.json';
 
 export default class Search extends Component {
 	constructor(props) {
@@ -23,10 +27,10 @@ export default class Search extends Component {
 	}
 
 	onGoPressed () {
-		// console.log(F18.courses[this.state.query]);
-		if(F18.courses[this.state.query]) {
+		// console.log(F.courses[this.state.query]);
+		if(F.courses[this.state.query]) {
 			this.props.navigation.navigate('Details',
-				{number: this.state.query, ...F18.courses[this.state.query]})
+				{number: this.state.query, ...F.courses[this.state.query]})
 		} else {
 			alert(`"${this.state.query}" is not a valid course number. Make sure to use hyphens ("-").`);
 		}
@@ -43,15 +47,9 @@ export default class Search extends Component {
 					containerStyle={styles.searchbar}
 				/>
 				<Button
-					icon={
-						<Icon
-							name='arrow-right'
-							size={15}
-							color='white'
-						/>
-					}
 					title='Go'
 					onPress={() => this.onGoPressed()}
+					buttonStyle={styles.button}
 				/>
 			</View>
 		);
@@ -67,5 +65,11 @@ const styles = StyleSheet.create({
 	searchbar: {
 		// flex: 1,
 		// flexDirection: 'row'
+	},
+	button: {
+		backgroundColor: GLOBALS.COLORS.ORANGE,
+		width: 100,
+		height: 45,
+		borderRadius: 5
 	}
 })

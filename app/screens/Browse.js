@@ -5,7 +5,10 @@ import Header from '../components/header';
 import CustomList from '../components/list';
 
 import GLOBALS from '../config/globals';
-import F18 from '../../data/F.json';
+import F from '../../data/F.json';
+import S from '../../data/S.json';
+import M1 from '../../data/M1.json';
+import M2 from '../../data/M2.json';
 
 export default class Browse extends Component {
 	details (item) {
@@ -18,7 +21,7 @@ export default class Browse extends Component {
 			<View style={styles.container}>
 				{/*<ScrollView>
 					<CustomList
-						data={F18}
+						data={F}
 						details={(item) => this.details(item)}/>
 				</ScrollView>*/}
 			</View>
